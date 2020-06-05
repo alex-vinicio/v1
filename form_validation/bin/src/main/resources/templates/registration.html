@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="form-group col-md-4 col-md-offset-5 align-center">
+			<h1>Registration Form</h1>
+    		<form class="form-group"  action="#" th:action="@{/registration}" th:object="${person}" method="post">
+    		<div class="form-group">
+    			<label for="age">Write your age (18-65 years)</label>
+    			<input type="text" th:field="*{age}" class="form-control" placeholder="Age"/>
+    			<p id="msg" class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+    		</div>
+    		<!--  
+    		<div class="form-group">
+        		<label for="name">Write your name</label> 
+        		<input type="text" th:field="*{name}" class="form-control" placeholder="Name" />
+        		<p id="msg" class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+        	</div>
+        	-->
+        	<div class="form-group">
+        		<input type="submit" value="Submit" class="btn btn-primary"/> <input type="reset" value="Reset" class="btn btn-secondary"/>
+        	</div>
+    		</form>
+    	</div>
+    </div>
+</div>    
+</body>
+</html>
